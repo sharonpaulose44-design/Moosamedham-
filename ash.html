@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MOOSAMEDHAM</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>MOOSAMEDHAM</h1>
+<p class="subtitle">An Adaptation Of Ashwamedham</p>
+
+    <!-- TOP ROW -->
+    <div class="topRow">
+
+        <div class="player">
+
+<img
+    src="file_00000000c294820bbee46e30fb437fd8.png"
+    class="avatar"
+    alt="CID Moosa">
+            <p>CID MOOSA</p>
+
+        </div>
+
+        <div class="questionBox">
+
+            <input
+                type="text"
+                id="questionInput"
+                placeholder="Ask a Yes / No question...">
+
+        </div>
+
+        <button id="askBtn">ASK</button>
+
+    </div>
+
+    <!-- COUNTER -->
+    <div class="counter">
+    <div id="questionsLeft" class="circle">20</div>
+    </div>
+
+    <!-- ANSWER ROW -->
+    <div class="answerRow">
+
+        <div id="answer">
+            Waiting for your question...
+        </div>
+
+        <div class="player ai">
+
+            <img src="file_000000004d30820698c05dd84deb5034.png" class="avatar">
+
+            <p>THORAPPAN AI</p>
+
+        </div>
+
+    </div>
+
+    <!-- GUESS -->
+    <div class="guessArea">
+
+        <input
+            type="text"
+            id="guessInput"
+            placeholder="Guess the person...">
+
+        <button id="guessBtn">GUESS</button>
+
+    </div>
+
+    <!-- BUTTONS -->
+    <div class="bottomButtons">
+
+        <button id="revealBtn">REVEAL ANSWER</button>
+
+        <button id="newGameBtn">NEW GAME</button>
+
+    </div>
+  <div class="history">
+    <h3>QUESTION HISTORY▼</h3>
+    <div id="historyList"></div>
+  </div>
+
+</div>
+
+<script src="people.js"></script>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

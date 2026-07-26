@@ -1,0 +1,1069 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+
+background:#0d0d0d;
+
+font-family:'Outfit',sans-serif;
+
+color:#fff;
+
+display:flex;
+
+justify-content:center;
+
+padding:15px;
+
+min-height:100vh;
+
+}
+
+.container{
+
+width:100%;
+
+max-width:420px;
+
+}
+h1{
+    font-family:'Russo One',sans-serif;
+    font-size:30px;
+    color:#930000;
+    text-align:center;
+    letter-spacing:2px;
+    text-shadow:none;
+  margin-bottom:0px;
+}
+.subtitle {
+    text-align: center;
+    color: #888;
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin-top: 0px;
+    margin-bottom: 25px;
+}
+
+/* ---------- TOP ---------- */
+
+.top{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:flex-start;
+
+margin-bottom:20px;
+
+}
+
+.player{
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+width:80px;
+
+}
+
+.avatar{
+
+width:70px;
+
+height:70px;
+
+border-radius:50%;
+
+border:3px solid #e50914;
+
+object-fit:cover;
+
+box-shadow:0 0 15px rgba(229,9,20,.5);
+
+}
+
+.player p{
+
+margin-top:8px;
+
+font-size:13px;
+
+font-weight:600;
+
+text-align:center;
+
+}
+
+.counter{
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+margin-top:5px;
+
+}
+
+#questionsLeft{
+
+width:65px;
+
+height:65px;
+
+border-radius:50%;
+
+background:#1b1b1b;
+
+border:3px solid #e50914;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:26px;
+
+font-weight:bold;
+
+box-shadow:0 0 20px rgba(229,9,20,.4);
+
+}
+
+.counter span{
+
+margin-top:8px;
+
+font-size:12px;
+
+color:#bbb;
+
+}
+
+/* ---------- QUESTION ---------- */
+
+.questionArea{
+
+display:flex;
+
+gap:10px;
+
+align-items:center;
+
+margin-bottom:25px;
+
+}
+
+.questionArea input{
+
+flex:1;
+
+height:50px;
+
+padding:0 15px;
+
+background:#1b1b1b;
+
+border:2px solid #333;
+
+border-radius:25px;
+
+color:white;
+
+font-size:15px;
+
+outline:none;
+
+transition:.3s;
+
+}
+
+.questionArea input:focus{
+
+border-color:#e50914;
+
+}
+
+#askBtn{
+    width:65px;
+    height:48px;
+    border-radius:18px;
+}
+/* ================= ANSWER ================= */
+
+.answerArea{
+
+display:flex;
+
+justify-content:flex-end;
+
+align-items:center;
+
+gap:12px;
+
+margin-bottom:25px;
+
+}
+
+
+
+.answerArea .player{
+
+width:75px;
+
+}
+
+/* ================= GUESS ================= */
+
+.guessArea{
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+gap:12px;
+
+margin-bottom:25px;
+
+}
+
+.guessArea input{
+
+width:100%;
+
+height:50px;
+
+padding:0 15px;
+
+background:#1b1b1b;
+
+border:2px solid #444;
+
+border-radius:25px;
+
+color:white;
+
+font-size:15px;
+
+outline:none;
+
+transition:.3s;
+
+}
+
+.guessArea input:focus{
+
+border-color:#ffd700;
+
+}
+
+#guessBtn{
+
+width:170px;
+
+height:48px;
+
+background:#ffd700;
+
+color:#111;
+
+border:none;
+
+border-radius:25px;
+
+font-weight:700;
+
+font-size:16px;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+/* ================= BOTTOM ================= */
+
+.bottomButtons{
+
+display:flex;
+
+flex-direction:column;
+
+gap:12px;
+
+}
+
+.bottomButtons button{
+
+height:50px;
+
+border:none;
+
+border-radius:25px;
+
+font-size:16px;
+
+font-weight:700;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+#summaryBtn{
+
+background:#2f2f2f;
+
+color:white;
+
+}
+
+#revealBtn{
+
+background:#e50914;
+
+color:white;
+
+}
+
+#newGameBtn{
+
+background:#0f8f4d;
+
+color:white;
+
+}
+
+/* ================= HOVER ================= */
+
+button:hover{
+
+transform:translateY(-2px);
+
+}
+
+#askBtn:hover{
+
+background:#8c0008;
+
+box-shadow:0 0 18px rgba(229,9,20,.45);
+
+}
+
+#guessBtn:hover{
+
+background:#780000df;
+
+
+}
+
+#summaryBtn:hover{
+
+background:#610000;
+
+}
+
+#revealBtn:hover{
+
+background:#8f0009;
+
+}
+
+#newGameBtn:hover{
+
+background:#7d0000;
+
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:420px){
+
+.container{
+
+padding:5px;
+
+}
+
+
+
+.questionArea input,
+
+.guessArea input{
+
+font-size:14px;
+
+}
+
+}
+.topRow{
+    display:grid;
+    grid-template-columns:75px 1fr 65px;
+    gap:12px;
+    align-items:center;
+}
+
+
+.counter{
+    display:flex;
+    justify-content:center;
+    margin:30px 0;
+}
+
+.answerRow{
+
+display:flex;
+
+justify-content:flex-end;
+
+align-items:center;
+
+gap:15px;
+
+margin:25px 0;
+
+}
+.counter{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin:35px 0;
+}
+
+.circle{
+    width:75px;
+    height:75px;
+    border-radius:50%;
+    border:3px solid #E50914;
+    background:#171717;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#fff;
+    font-size:30px;
+    font-weight:bold;
+    box-shadow:0 0 18px rgba(229,9,20,.6);
+}
+
+.questionBox input{
+    font-family:'Outfit',sans-serif;
+    font-size:17px;
+    font-weight:600;
+    letter-spacing:0.5px;
+}
+#askBtn{
+    width:65px;
+    height:48px;
+    border-radius:18px;
+}
+.questionBox input{
+
+width:100%;
+
+height:52px;
+
+padding:0 20px;
+
+background:#161616;
+
+border:2px solid #E50914;
+
+border-radius:30px;
+
+color:white;
+
+font-size:16px;
+
+outline:none;
+
+transition:.3s;
+
+box-shadow:0 0 12px rgba(229,9,20,.35);
+
+}
+
+.questionBox input::placeholder{
+
+color:#888;
+
+}
+
+.questionBox input:focus{
+
+border-color:#8d0000;
+
+box-shadow:0 0 20px rgba(167,0,0,0.6);
+
+}
+#answer{
+
+display:inline-flex;
+
+align-items:center;
+
+justify-content:center;
+
+min-width:90px;
+
+max-width:170px;
+
+min-height:42px;
+
+padding:8px 18px;
+
+background:linear-gradient(180deg,#8e0007,#b30000);
+
+color:white;
+
+font-size:16px;
+
+font-weight:700;
+
+border:none;
+
+border-radius:999px;
+
+box-shadow:0 0 15px rgb(200,0,0);
+
+text-align:center;
+
+word-wrap:break-word;
+
+}
+#askBtn{
+    width:75px;
+    height:42px;
+    background:#6c0005;
+    color:#fff;
+    border:none;
+    border-radius:999px;
+
+    font-family:'Outfit',sans-serif;
+    font-size:15px;
+    font-weight:700;
+    letter-spacing:0.5px;
+
+    cursor:pointer;
+    transition:.2s;
+}
+
+#askBtn:hover{
+    background:#930008;
+}
+
+#askBtn:active{
+    transform:scale(.96);
+}
+.bottomButtons{
+
+display:flex;
+
+flex-direction:column;
+
+gap:18px;
+
+margin-top:30px;
+
+}
+
+/* Common Style */
+
+.bottomButtons button{
+
+width:100%;
+
+height:55px;
+
+border:none;
+
+border-radius:999px;
+
+font-family:'Outfit',sans-serif;
+
+font-size:18px;
+
+font-weight:700;
+
+letter-spacing:1px;
+
+color:white;
+
+cursor:pointer;
+
+transition:.25s;
+
+}
+
+/* Guess */
+
+#guessBtn{
+
+background:linear-gradient(180deg,#8b0000,#d10000);
+
+}
+
+#guessBtn:hover{
+
+background:#820000;
+
+transform:scale(1.02);
+
+}
+
+/* Reveal */
+
+#revealBtn{
+
+background:linear-gradient(180deg,#840000,#8b0000);
+
+}
+
+#revealBtn:hover{
+
+background:#700000;
+
+transform:scale(1.02);
+
+}
+
+/* New Game */
+
+#newGameBtn{
+
+background:linear-gradient(180deg,#720000,#d60000);
+
+}
+
+#newGameBtn:hover{
+
+background:#b30000;
+
+transform:scale(1.02);
+
+}
+/* ALL ACTION BUTTONS */
+
+#guessBtn,
+#revealBtn,
+#newGameBtn{
+
+    width:100%;
+    height:58px;
+
+    border:none;
+    border-radius:999px;
+
+    background:#800000;
+
+    color:#fff;
+
+    font-family:'Outfit',sans-serif;
+    font-size:18px;
+    font-weight:700;
+    letter-spacing:1px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+
+}
+
+#guessBtn:hover,
+#revealBtn:hover,
+#newGameBtn:hover {
+    background: #610000;
+    transform: none;
+
+
+}
+#guessInput{
+
+    width:100%;
+    height:56px;
+
+    background:#151515;
+
+    border:2px solid #3b3b3b;
+
+    border-radius:999px;
+
+    color:#fff;
+
+    padding:0 24px;
+
+    font-family:'Outfit',sans-serif;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    outline:none;
+
+    transition:.25s;
+
+}
+
+#guessInput::placeholder{
+
+    color:#7f7f7f;
+
+}
+
+#guessInput:focus{
+
+    border-color:#960008;
+
+    
+
+}
+#guessBtn,
+#revealBtn,
+#newGameBtn{
+
+    width:88%;
+    height:50px;
+
+    margin:auto;
+
+    border:none;
+    border-radius:999px;
+
+    background:#610000;
+
+    color:#fff;
+
+    font-family:'Outfit',sans-serif;
+    font-size:16px;
+    font-weight:700;
+    letter-spacing:1px;
+
+  
+
+}
+#askBtn{
+    font-family:'Outfit', sans-serif !important;
+    font-size:16px !important;
+    font-weight:700 !important;
+}
+.guessArea{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:18px;
+    margin-top:30px;
+}
+
+#guessInput,
+#guessBtn,
+#revealBtn,
+#newGameBtn{
+    width:88%;
+    margin:0 auto;
+    display:block;
+    box-sizing:border-box;
+}
+
+#guessInput{
+    height:52px;
+}
+
+#guessBtn,
+#revealBtn,
+#newGameBtn{
+    height:50px;
+    border-radius:999px;
+}
+#guessBtn{
+    width:88%;
+}
+button,
+input{
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+}
+
+button:focus,
+button:active,
+input:focus{
+    outline: none;
+    box-shadow: none;
+}
+
+#askBtn{
+    -webkit-tap-highlight-color: transparent;
+}
+
+#askBtn:active{
+    background:#940000;
+    transform:scale(0.97);
+}
+#askBtn{
+
+    width:75px;
+    height:42px;
+
+    background:#800000;
+    color:white;
+
+    border:none;
+    border-radius:999px;
+
+    font-family:'Outfit',sans-serif;
+    font-size:16px;
+    font-weight:700;
+
+    cursor:pointer;
+
+    box-shadow:none;
+    outline:none;
+
+    transition:background .2s, transform .15s;
+
+    -webkit-tap-highlight-color:transparent;
+}
+
+#askBtn:hover{
+    background:#850000;
+}
+
+#askBtn:focus,
+#askBtn:active{
+    outline:none;
+    box-shadow:none;
+    background:#7a0000;
+}
+
+#askBtn:active{
+    transform:scale(0.97);
+}
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(180, 0, 0, 0.20),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 85% 80%,
+            rgba(180, 0, 0, 0.18),
+            transparent 30%
+        ),
+        repeating-linear-gradient(
+            135deg,
+            rgba(255, 0, 0, 0.035) 0px,
+            rgba(255, 0, 0, 0.035) 2px,
+            transparent 2px,
+            transparent 8px
+        ),
+        #080808;
+}
+#guessBtn,
+#revealBtn,
+#newGameBtn {
+    -webkit-tap-highlight-color: transparent !important;
+    outline: none !important;
+    box-shadow: none !important;
+    filter: none !important;
+}
+
+#guessBtn:focus,
+#revealBtn:focus,
+#newGameBtn:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+#guessBtn:active,
+#revealBtn:active,
+#newGameBtn:active {
+    outline: none !important;
+    box-shadow: none !important;
+    filter: none !important;
+}
+.history {
+    width: 88%;
+    margin: 30px auto;
+}
+
+.history h3 {
+    text-align: center;
+    color: #888;
+    font-size: 15px;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.historyItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+
+    background: #151515;
+    border-radius: 12px;
+
+    padding: 12px 15px;
+    margin-bottom: 10px;
+
+    font-size: 14px;
+}
+
+.historyQuestion {
+    color: #ddd;
+    flex: 1;
+}
+
+.historyAnswer {
+    font-weight: bold;
+}
+
+/* ANSWER COLOURS */
+
+.answer-yes {
+    color: #00c853;
+}
+
+.answer-no {
+    color: #ff3030;
+}
+
+.answer-probably {
+    color: #ffc107;
+}
+
+.answer-unknown {
+    color: #888;
+}
+/* Better vertical alignment */
+.answerRow {
+    margin: 15px 0 10px;
+}
+
+.guessArea {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.bottomButtons {
+    margin-top: 0;
+    gap: 18px;
+}
+#guessBtn,
+#revealBtn,
+#newGameBtn {
+    width: 80%;
+    height: 48px;
+    font-size: 16px;
+    margin: 0 auto;
+}
+.history {
+    margin-top: 30px;
+}
+/* ================= GUESS SECTION ================= */
+
+.guessArea {
+    width: 88%;
+    margin: 30px auto 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* ================= BOTTOM BUTTONS ================= */
+
+.bottomButtons {
+    width: 88%;
+    margin: 18px auto 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* All four elements same width */
+
+#guessInput,
+#guessBtn,
+#revealBtn,
+#newGameBtn {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Input */
+
+#guessInput {
+    height: 52px;
+}
+
+/* Buttons */
+
+#guessBtn,
+#revealBtn,
+#newGameBtn {
+    height: 50px;
+}
+/* ================= BOTTOM SECTION ================= */
+
+.guessArea {
+    width: 88%;
+    margin: 20px auto 0;
+    gap: 14px;
+}
+
+#guessInput {
+    width: 100%;
+    height: 48px;
+}
+
+/* Buttons */
+
+.bottomButtons {
+    width: 88%;
+    margin: 18px auto 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+#guessBtn,
+#revealBtn,
+#newGameBtn {
+    width: 100%;
+    height: 48px;
+}
+
+/* Question History */
+
+#historyBtn {
+    width: 88%;
+    height: 40px;
+
+    margin: 18px auto 0;
+
+    font-size: 13px;
+}
+#historyBtn {
+    margin: 4px auto 0;
+}
+.history {
+    margin-top: 5px !important;
+}
