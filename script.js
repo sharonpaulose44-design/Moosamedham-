@@ -141,44 +141,28 @@ Unknown
 
     try{
 
-        const res = await fetch(
-            "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=",
-            {
-                method:"POST",
-                headers:{
-                    "Content-Type":"application/json"
-                },
-                body:JSON.stringify({
-                    contents:[
-                        {
-                            parts:[
-                                {
-                                    text:prompt
-                                }
-                            ]
-                        }
-                    ]
-                })
-            }
-        );
+        const res = await fetch("/api/ask", {
+
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify({
+                prompt: prompt
+            })
+
+        });
 
         const data = await res.json();
 
-        const raw =
-        data.candidates?.[0]?.content?.parts?.[0]?.text || "";
-
-        const ans = raw.trim().toLowerCase();
-
-        if(ans.startsWith("yes")) return "Yes";
-        if(ans.startsWith("no")) return "No";
-        if(ans.startsWith("probably")) return "Probably";
-        if(ans.startsWith("unknown")) return "Unknown";
-
-        return "Unknown";
+        return data.answer || "Unknown";
 
     }catch(err){
 
         console.error(err);
+
         return "Unknown";
 
     }
