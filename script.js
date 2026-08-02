@@ -48,7 +48,7 @@ function startGame(){
         answer.innerText =
             "Ask your first question !";
 
-    }, 1600);
+    }, 1500);
 }
 function getAnswer(q){
 
