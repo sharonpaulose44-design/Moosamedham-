@@ -1135,3 +1135,181 @@ body {
     letter-spacing:3px;
     text-shadow:0 0 10px rgba(180,0,0,.4);
 }
+/* ================= POINTED RPG BUTTONS ================= */
+
+#askBtn,
+#guessBtn,
+#revealBtn,
+#newGameBtn {
+    position: relative;
+    background: linear-gradient(
+        180deg,
+        #930000,
+        #760000 50%,
+        #3b0000
+    );
+
+    color: #fff;
+    
+
+    font-family: 'Cinzel', serif !important;
+    font-weight: 400;
+    letter-spacing: 1px;
+
+    cursor: pointer;
+    z-index: 1;
+
+    clip-path: polygon(
+        0 50%,
+        10% 0,
+        90% 0,
+        100% 50%,
+        90% 100%,
+        10% 100%
+    );
+
+    box-shadow:
+        inset 0 0 12px rgba(164,0,0,0.8),
+        0 3px 8px rgba(119,0,0,0.7);
+
+    text-shadow: 2px 2px 2px #000;
+
+    transition: .15s ease;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+/* ================= ASK ================= */
+
+#askBtn {
+    width: 76px;
+    height: 46px;
+
+    padding: 0;
+
+    font-size: 14px;
+}
+
+
+/* ================= MAIN BUTTONS ================= */
+
+#guessBtn,
+#revealBtn,
+#newGameBtn {
+    width: 100%;
+    height: 48px;
+
+    margin: 0 auto;
+
+    font-size: 17px;
+}
+
+
+/* ================= HOVER ================= */
+
+#askBtn:hover,
+#guessBtn:hover,
+#revealBtn:hover,
+#newGameBtn:hover {
+    background: linear-gradient(
+        180deg,
+        #9b0000,
+        #920000 50%,
+        #4a0000
+    );
+
+    transform: scale(1.02);
+}
+
+
+/* ================= PRESS ================= */
+
+#askBtn:active,
+#guessBtn:active,
+#revealBtn:active,
+#newGameBtn:active {
+    transform: scale(.97);
+}
+#askBtn,
+#guessBtn,
+#revealBtn,
+#newGameBtn {
+    font-family: 'Russo One', sans-serif !important;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+#answer {
+    font-family: 'Russo One', sans-serif !important;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+}
+#askBtn {
+    width: 70px !important;
+    height: 42px !important;
+
+    padding: 0 !important;
+    margin: 0 !important;
+
+    border: 2px solid #3d0000 !important;
+    border-radius: 10px !important;
+
+    background: linear-gradient(
+        180deg,
+        #9b0808,
+        #7f0a0a
+    ) !important;
+
+    color: white !important;
+
+    font-family: 'Russo One', sans-serif !important;
+    font-size: 15px !important;
+    font-weight: 400 !important;
+    letter-spacing: .5px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    /* Slightly pointed corners */
+    clip-path: polygon(
+        7% 0,
+        93% 0,
+        100% 50%,
+        93% 100%,
+        7% 100%,
+        0 50%
+    ) !important;
+
+    box-shadow:
+        inset 0 0 8px rgba(0,0,0,.5),
+        0 2px 5px rgba(0,0,0,.6) !important;
+
+    text-shadow: 1px 1px 2px #000 !important;
+
+    outline: none !important;
+}
+
+/* Remove old effects */
+#askBtn::before,
+#askBtn::after {
+    display: none !important;
+}
+
+/* Hover */
+#askBtn:hover {
+    background: #900000 !important;
+}
+
+/* Touch */
+#askBtn:active {
+    transform: scale(.97) !important;
+}
+
+/* Focus */
+#askBtn:focus {
+    outline: none !important;
+    box-shadow:
+        inset 0 0 8px rgba(0,0,0,.5),
+        0 2px 5px rgba(0,0,0,.6) !important;
+}
