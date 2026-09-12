@@ -93,7 +93,8 @@ const people = [
         "retired from international cricket",
         "did not win nobel prize",
         "did not act in movies",
-        "did not play football"
+        "did not play football",
+        "not a politician"
     ]
 },
 
