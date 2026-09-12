@@ -94,7 +94,7 @@ const people = [
         "did not win nobel prize",
         "did not act in movies",
         "did not play football",
-        "not a politician"
+        "did not play a role as politician"
     ]
 },
 
