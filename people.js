@@ -340,8 +340,8 @@ const people = [
         "martial artist",
         "stuntman",
         "director",
-        "producer",
-        "singer"
+        "producer"
+       
     ],
 
     awards: [
@@ -361,39 +361,6 @@ const people = [
         "is a martial artist",
         "is famous for performing his own stunts",
         "is known for action comedy films"
-    ]
-  },
-  {
-    name: "Michael Jackson",
-    alive: false,
-    gender: "male",
-    nationality: "american",
-
-    professions: [
-        "singer",
-        "songwriter",
-        "dancer",
-        "performer",
-        "producer"
-    ],
-
-    awards: [
-        "Grammy Award",
-        "Grammy Legend Award"
-    ],
-
-    knownFor: [
-        "Thriller",
-        "Billie Jean",
-        "Beat It",
-        "Moonwalk"
-    ],
-
-    facts: [
-        "was known as the King of Pop",
-        "was a member of the Jackson 5",
-        "was famous for the moonwalk dance",
-        "released the album Thriller"
     ]
   },
   {
