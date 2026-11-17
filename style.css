@@ -1,927 +1,429 @@
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
 
-body{
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moosamedham | Outlaws for Life</title>
 
-background:#0d0d0d;
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Russo+One&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-font-family:'Outfit',sans-serif;
-
-color:#fff;
-
-display:flex;
-
-justify-content:center;
-
-padding:15px;
-
-min-height:100vh;
-
-}
-
-.container{
-
-width:100%;
-
-max-width:420px;
-
-}
-h1{
-    font-family:'Russo One',sans-serif;
-    font-size:30px;
-    color:#930000;
-    text-align:center;
-    letter-spacing:2px;
-    text-shadow:none;
-  margin-bottom:0px;
-}
-.subtitle {
-    text-align: center;
-    color: #888;
-    font-size: 14px;
-    letter-spacing: 2px;
-    margin-top: 0px;
-    margin-bottom: 25px;
-}
-
-/* ---------- TOP ---------- */
-
-.top{
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:flex-start;
-
-margin-bottom:20px;
-
-}
-
-.player{
-
-display:flex;
-
-flex-direction:column;
-
-align-items:center;
-
-width:80px;
-
-}
-
-.avatar{
-
-width:70px;
-
-height:70px;
-
-border-radius:50%;
-
-border:3px solid #e50914;
-
-object-fit:cover;
-
-box-shadow:0 0 15px rgba(229,9,20,.5);
-
-}
-
-.player p{
-
-margin-top:8px;
-
-font-size:13px;
-
-font-weight:600;
-
-text-align:center;
-
-}
-
-.counter{
-
-display:flex;
-
-flex-direction:column;
-
-align-items:center;
-
-margin-top:5px;
-
-}
-
-#questionsLeft{
-
-width:65px;
-
-height:65px;
-
-border-radius:50%;
-
-background:#1b1b1b;
-
-border:3px solid #e50914;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-font-size:26px;
-
-font-weight:bold;
-
-box-shadow:0 0 20px rgba(229,9,20,.4);
-
-}
-
-.counter span{
-
-margin-top:8px;
-
-font-size:12px;
-
-color:#bbb;
-
-}
-
-/* ---------- QUESTION ---------- */
-
-.questionArea{
-
-display:flex;
-
-gap:10px;
-
-align-items:center;
-
-margin-bottom:25px;
-
-}
-
-.questionArea input{
-
-flex:1;
-
-height:50px;
-
-padding:0 15px;
-
-background:#1b1b1b;
-
-border:2px solid #333;
-
-border-radius:25px;
-
-color:white;
-
-font-size:15px;
-
-outline:none;
-
-transition:.3s;
-
-}
-
-.questionArea input:focus{
-
-border-color:#e50914;
-
-}
-
-#askBtn{
-    width:65px;
-    height:48px;
-    border-radius:18px;
-}
-/* ================= ANSWER ================= */
-
-.answerArea{
-
-display:flex;
-
-justify-content:flex-end;
-
-align-items:center;
-
-gap:12px;
-
-margin-bottom:25px;
-
-}
-
-
-
-.answerArea .player{
-
-width:75px;
-
-}
-
-/* ================= GUESS ================= */
-
-.guessArea{
-
-display:flex;
-
-flex-direction:column;
-
-align-items:center;
-
-gap:12px;
-
-margin-bottom:25px;
-
-}
-
-.guessArea input{
-
-width:100%;
-
-height:50px;
-
-padding:0 15px;
-
-background:#1b1b1b;
-
-border:2px solid #444;
-
-border-radius:25px;
-
-color:white;
-
-font-size:15px;
-
-outline:none;
-
-transition:.3s;
-
-}
-
-.guessArea input:focus{
-
-border-color:#ffd700;
-
-}
-
-#guessBtn{
-
-width:170px;
-
-height:48px;
-
-background:#ffd700;
-
-color:#111;
-
-border:none;
-
-border-radius:25px;
-
-font-weight:700;
-
-font-size:16px;
-
-cursor:pointer;
-
-transition:.3s;
-
-}
-
-/* ================= BOTTOM ================= */
-
-.bottomButtons{
-
-display:flex;
-
-flex-direction:column;
-
-gap:12px;
-
-}
-
-.bottomButtons button{
-
-height:50px;
-
-border:none;
-
-border-radius:25px;
-
-font-size:16px;
-
-font-weight:700;
-
-cursor:pointer;
-
-transition:.3s;
-
-}
-
-#summaryBtn{
-
-background:#2f2f2f;
-
-color:white;
-
-}
-
-#revealBtn{
-
-background:#e50914;
-
-color:white;
-
-}
-
-#newGameBtn{
-
-background:#0f8f4d;
-
-color:white;
-
-}
-
-/* ================= HOVER ================= */
-
-button:hover{
-
-transform:translateY(-2px);
-
-}
-
-#askBtn:hover{
-
-background:#8c0008;
-
-box-shadow:0 0 18px rgba(229,9,20,.45);
-
-}
-
-#guessBtn:hover{
-
-background:#780000df;
-
-
-}
-
-#summaryBtn:hover{
-
-background:#610000;
-
-}
-
-#revealBtn:hover{
-
-background:#8f0009;
-
-}
-
-#newGameBtn:hover{
-
-background:#7d0000;
-
-}
-
-/* ================= RESPONSIVE ================= */
-
-@media(max-width:420px){
-
-.container{
-
-padding:5px;
-
-}
-
-
-
-.questionArea input,
-
-.guessArea input{
-
-font-size:14px;
-
-}
-
-}
-.topRow{
-    display:grid;
-    grid-template-columns:75px 1fr 65px;
-    gap:12px;
-    align-items:center;
-}
-
-
-.counter{
-    display:flex;
-    justify-content:center;
-    margin:30px 0;
-}
-
-.answerRow{
-
-display:flex;
-
-justify-content:flex-end;
-
-align-items:center;
-
-gap:15px;
-
-margin:25px 0;
-
-}
-.counter{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    margin:35px 0;
-}
-
-.circle{
-    width:75px;
-    height:75px;
-    border-radius:50%;
-    border:3px solid #E50914;
-    background:#171717;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    color:#fff;
-    font-size:30px;
-    font-weight:bold;
-    box-shadow:0 0 18px rgba(229,9,20,.6);
-}
-
-.questionBox input{
-    font-family:'Outfit',sans-serif;
-    font-size:17px;
-    font-weight:600;
-    letter-spacing:0.5px;
-}
-#askBtn{
-    width:65px;
-    height:48px;
-    border-radius:18px;
-}
-.questionBox input{
-
-width:100%;
-
-height:52px;
-
-padding:0 20px;
-
-background:#161616;
-
-border:2px solid #E50914;
-
-border-radius:30px;
-
-color:white;
-
-font-size:16px;
-
-outline:none;
-
-transition:.3s;
-
-box-shadow:0 0 12px rgba(229,9,20,.35);
-
-}
-
-.questionBox input::placeholder{
-
-color:#888;
-
-}
-
-.questionBox input:focus{
-
-border-color:#8d0000;
-
-box-shadow:0 0 20px rgba(167,0,0,0.6);
-
-}
-#answer{
-
-display:inline-flex;
-
-align-items:center;
-
-justify-content:center;
-
-min-width:90px;
-
-max-width:170px;
-
-min-height:42px;
-
-padding:8px 18px;
-
-background:linear-gradient(180deg,#8e0007,#b30000);
-
-color:white;
-
-font-size:16px;
-
-font-weight:700;
-
-border:none;
-
-border-radius:999px;
-
-box-shadow:0 0 15px rgb(200,0,0);
-
-text-align:center;
-
-word-wrap:break-word;
-
-}
-#askBtn{
-    width:75px;
-    height:42px;
-    background:#6c0005;
-    color:#fff;
-    border:none;
-    border-radius:999px;
-
-    font-family:'Outfit',sans-serif;
-    font-size:15px;
-    font-weight:700;
-    letter-spacing:0.5px;
-
-    cursor:pointer;
-    transition:.2s;
-}
-
-#askBtn:hover{
-    background:#930008;
-}
-
-#askBtn:active{
-    transform:scale(.96);
-}
-.bottomButtons{
-
-display:flex;
-
-flex-direction:column;
-
-gap:18px;
-
-margin-top:30px;
-
-}
-
-/* Common Style */
-
-.bottomButtons button{
-
-width:100%;
-
-height:55px;
-
-border:none;
-
-border-radius:999px;
-
-font-family:'Outfit',sans-serif;
-
-font-size:18px;
-
-font-weight:700;
-
-letter-spacing:1px;
-
-color:white;
-
-cursor:pointer;
-
-transition:.25s;
-
-}
-
-/* Guess */
-
-#guessBtn{
-
-background:linear-gradient(180deg,#8b0000,#d10000);
-
-}
-
-#guessBtn:hover{
-
-background:#820000;
-
-transform:scale(1.02);
-
-}
-
-/* Reveal */
-
-#revealBtn{
-
-background:linear-gradient(180deg,#840000,#8b0000);
-
-}
-
-#revealBtn:hover{
-
-background:#700000;
-
-transform:scale(1.02);
-
-}
-
-/* New Game */
-
-#newGameBtn{
-
-background:linear-gradient(180deg,#720000,#d60000);
-
-}
-
-#newGameBtn:hover{
-
-background:#b30000;
-
-transform:scale(1.02);
-
-}
-/* ALL ACTION BUTTONS */
-
-#guessBtn,
-#revealBtn,
-#newGameBtn{
-
-    width:100%;
-    height:58px;
-
-    border:none;
-    border-radius:999px;
-
-    background:#800000;
-
-    color:#fff;
-
-    font-family:'Outfit',sans-serif;
-    font-size:18px;
-    font-weight:700;
-    letter-spacing:1px;
-
-    cursor:pointer;
-
-    transition:.25s;
-
-
-}
-
-#guessBtn:hover,
-#revealBtn:hover,
-#newGameBtn:hover {
-    background: #610000;
-    transform: none;
-
-
-}
-#guessInput{
-
-    width:100%;
-    height:56px;
-
-    background:#151515;
-
-    border:2px solid #3b3b3b;
-
-    border-radius:999px;
-
-    color:#fff;
-
-    padding:0 24px;
-
-    font-family:'Outfit',sans-serif;
-
-    font-size:18px;
-
-    font-weight:600;
-
-    outline:none;
-
-    transition:.25s;
-
-}
-
-#guessInput::placeholder{
-
-    color:#7f7f7f;
-
-}
-
-#guessInput:focus{
-
-    border-color:#960008;
-
-    
-
-}
-#guessBtn,
-#revealBtn,
-#newGameBtn{
-
-    width:88%;
-    height:50px;
-
-    margin:auto;
-
-    border:none;
-    border-radius:999px;
-
-    background:#610000;
-
-    color:#fff;
-
-    font-family:'Outfit',sans-serif;
-    font-size:16px;
-    font-weight:700;
-    letter-spacing:1px;
-
-  
-
-}
-#askBtn{
-    font-family:'Outfit', sans-serif !important;
-    font-size:16px !important;
-    font-weight:700 !important;
-}
-.guessArea{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:18px;
-    margin-top:30px;
-}
-
-#guessInput,
-#guessBtn,
-#revealBtn,
-#newGameBtn{
-    width:88%;
-    margin:0 auto;
-    display:block;
-    box-sizing:border-box;
-}
-
-#guessInput{
-    height:52px;
-}
-
-#guessBtn,
-#revealBtn,
-#newGameBtn{
-    height:50px;
-    border-radius:999px;
-}
-#guessBtn{
-    width:88%;
-}
-button,
-input{
-    -webkit-tap-highlight-color: transparent;
-    outline: none;
-}
-
-button:focus,
-button:active,
-input:focus{
-    outline: none;
-    box-shadow: none;
-}
-
-#askBtn{
-    -webkit-tap-highlight-color: transparent;
-}
-
-#askBtn:active{
-    background:#940000;
-    transform:scale(0.97);
-}
-#askBtn{
-
-    width:75px;
-    height:42px;
-
-    background:#800000;
-    color:white;
-
-    border:none;
-    border-radius:999px;
-
-    font-family:'Outfit',sans-serif;
-    font-size:16px;
-    font-weight:700;
-
-    cursor:pointer;
-
-    box-shadow:none;
-    outline:none;
-
-    transition:background .2s, transform .15s;
-
-    -webkit-tap-highlight-color:transparent;
-}
-
-#askBtn:hover{
-    background:#850000;
-}
-
-#askBtn:focus,
-#askBtn:active{
-    outline:none;
-    box-shadow:none;
-    background:#7a0000;
-}
-
-#askBtn:active{
-    transform:scale(0.97);
-}
-body {
+<style>
+* {
     margin: 0;
-    min-height: 100vh;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #080606;
+    color: white;
+    font-family: 'Outfit', sans-serif;
+}
+
+/* NAVIGATION */
+
+nav {
+    height: 65px;
+    background: #090909;
+    border-bottom: 1px solid #392020;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+}
+
+.logo {
+    font-family: 'Russo One', sans-serif;
+    font-size: 25px;
+    color: #b40000;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: white;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+nav li {
+    color: #bbb;
+    font-size: 12px;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+nav li:first-child {
+    color: #d00000;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 420px;
+    padding: 65px 6%;
+    position: relative;
+    overflow: hidden;
 
     background:
-        radial-gradient(
-            circle at 15% 20%,
-            rgba(180, 0, 0, 0.20),
-            transparent 25%
-        ),
-        radial-gradient(
-            circle at 85% 80%,
-            rgba(180, 0, 0, 0.18),
-            transparent 30%
-        ),
-        repeating-linear-gradient(
-            135deg,
-            rgba(255, 0, 0, 0.035) 0px,
-            rgba(255, 0, 0, 0.035) 2px,
-            transparent 2px,
-            transparent 8px
-        ),
-        #080808;
+    radial-gradient(circle at 80% 40%,
+    rgba(170,0,0,.55), transparent 35%),
+    linear-gradient(100deg,#080606 15%,#300606 65%,#650b0b);
 }
+
+.hero::after {
+    content: "M";
+    position: absolute;
+    right: 8%;
+    top: 0;
+    font-family: 'Cinzel', serif;
+    font-size: 340px;
+    font-weight: bold;
+    color: rgba(255,255,255,.035);
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 550px;
+}
+
+.hero small {
+    color: #d22a2a;
+    letter-spacing: 3px;
+    font-weight: bold;
+}
+
+.hero h1 {
+    font-family: 'Russo One', sans-serif;
+    font-size: clamp(38px,7vw,75px);
+    line-height: 1;
+    margin: 18px 0;
+    text-shadow: 3px 3px 5px black;
+}
+
+.hero h1 span {
+    color: #b50000;
+}
+
+.hero p {
+    color: #ccc;
+    letter-spacing: 1px;
+    line-height: 1.8;
+    font-size: 14px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.hero-buttons button {
+    padding: 13px 25px;
+    background: #a00000;
+    color: white;
+    border: none;
+    font-family: 'Cinzel', serif;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.hero-buttons button:hover {
+    background: #d00000;
+}
+
+/* FEATURE CARDS */
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    background: #101010;
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+}
+
+.feature {
+    padding: 25px 15px;
+    text-align: center;
+    border-right: 1px solid #292020;
+}
+
+.feature .symbol {
+    font-size: 30px;
+    color: #c00000;
+}
+
+.feature h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+.feature p {
+    color: #999;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+/* MAIN GAME SECTION */
+
+.game-section {
+    padding: 55px 15px;
+    background:
+    radial-gradient(circle at 80% 20%,
+    rgba(130,0,0,.2),transparent 40%),
+    #100909;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.section-heading small {
+    color: #b60000;
+    letter-spacing: 4px;
+}
+
+.section-heading h2 {
+    font-family: 'Russo One', sans-serif;
+    font-size: 32px;
+    margin-top: 10px;
+}
+
+/* GAME CONTAINER */
+
+.container {
+    width: 100%;
+    max-width: 480px;
+    margin: auto;
+    padding: 28px 22px;
+    background: linear-gradient(145deg,#1a1212,#0b0909);
+    border: 1px solid #5c2525;
+    box-shadow: 0 0 30px rgba(150,0,0,.2);
+}
+
+.subtitle {
+    text-align: center;
+    color: #999;
+    font-size: 12px;
+    letter-spacing: 3px;
+    margin: 8px 0 25px;
+}
+
+/* PLAYER ROW */
+
+.topRow {
+    display: grid;
+    grid-template-columns: 75px 1fr 75px;
+    align-items: center;
+    gap: 10px;
+}
+
+.player {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 75px;
+}
+
+.avatar {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #a90000;
+    box-shadow: 0 0 12px #650000;
+}
+
+.player p {
+    margin-top: 8px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.counter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.circle {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    border: 3px solid #bd0000;
+    background: #171010;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 27px;
+    font-weight: bold;
+}
+
+.counter span {
+    font-size: 10px;
+    color: #aaa;
+    margin-top: 7px;
+}
+
+/* QUESTION */
+
+.questionBox {
+    margin-top: 30px;
+    display: flex;
+    gap: 8px;
+}
+
+.questionBox input {
+    flex: 1;
+    min-width: 0;
+    height: 48px;
+    padding: 0 15px;
+    background: #100d0d;
+    border: 1px solid #632020;
+    color: white;
+    border-radius: 4px;
+    outline: none;
+    font-family: 'Outfit',sans-serif;
+}
+
+.questionBox input:focus {
+    border-color: #e00000;
+}
+
+#askBtn {
+    width: 75px;
+    background: #950000;
+    color: white;
+    border: none;
+    font-family: 'Russo One',sans-serif;
+    cursor: pointer;
+}
+
+/* ANSWER */
+
+.answerRow {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+    margin: 20px 0;
+}
+
+#answer {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 85px;
+    padding: 10px 18px;
+    background: #850000;
+    color: white;
+    font-family: 'Russo One',sans-serif;
+    border-radius: 3px;
+}
+
+/* GUESS */
+
+.guessArea {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    margin-top: 25px;
+}
+
+#guessInput {
+    width: 100%;
+    height: 48px;
+    padding: 0 15px;
+    background: #100d0d;
+    border: 1px solid #555;
+    color: white;
+    outline: none;
+    border-radius: 3px;
+    font-family: 'Outfit',sans-serif;
+}
+
+#guessInput:focus {
+    border-color: #c00000;
+}
+
+/* BUTTONS */
+
+.bottomButtons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+#askBtn,
 #guessBtn,
 #revealBtn,
 #newGameBtn {
-    -webkit-tap-highlight-color: transparent !important;
-    outline: none !important;
-    box-shadow: none !important;
-    filter: none !important;
+    height: 47px;
+    cursor: pointer;
+    transition: .2s;
 }
 
-#guessBtn:focus,
-#revealBtn:focus,
-#newGameBtn:focus {
-    outline: none !important;
-    box-shadow: none !important;
+#guessBtn,
+#revealBtn,
+#newGameBtn {
+    width: 100%;
+    background: linear-gradient(180deg,#a00000,#590000);
+    color: white;
+    border: 1px solid #b42b2b;
+    font-family: 'Russo One',sans-serif;
+    font-size: 14px;
+    letter-spacing: 1px;
 }
 
-#guessBtn:active,
-#revealBtn:active,
-#newGameBtn:active {
-    outline: none !important;
-    box-shadow: none !important;
-    filter: none !important;
+#askBtn:hover,
+#guessBtn:hover,
+#revealBtn:hover,
+#newGameBtn:hover {
+    background: #c00000;
 }
+
+/* HISTORY */
+
+#historyBtn {
+    display: block;
+    width: 100%;
+    height: 38px;
+    margin-top: 15px;
+    background: #252020;
+    color: white;
+    border: 1px solid #444;
+    cursor: pointer;
+}
+
 .history {
-    width: 88%;
-    margin: 30px auto;
+    margin-top: 20px;
 }
 
 .history h3 {
     text-align: center;
-    color: #888;
-    font-size: 15px;
-    letter-spacing: 2px;
-    margin-bottom: 15px;
+    color: #c00000;
+    font-family: 'Cinzel',serif;
+    font-size: 14px;
+    margin-bottom: 12px;
 }
 
 .historyItem {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     gap: 10px;
-
-    background: #151515;
-    border-radius: 12px;
-
-    padding: 12px 15px;
-    margin-bottom: 10px;
-
-    font-size: 14px;
+    padding: 12px;
+    margin-bottom: 8px;
+    background: #191414;
+    font-size: 13px;
 }
 
 .historyQuestion {
@@ -933,383 +435,270 @@ body {
     font-weight: bold;
 }
 
-/* ANSWER COLOURS */
+.answer-yes {color: #00c853;}
+.answer-no {color: #ff3030;}
+.answer-probably {color: #ffc107;}
+.answer-unknown {color: #888;}
 
-.answer-yes {
-    color: #00c853;
-}
+/* FOOTER */
 
-.answer-no {
-    color: #ff3030;
-}
-
-.answer-probably {
-    color: #ffc107;
-}
-
-.answer-unknown {
-    color: #888;
-}
-/* Better vertical alignment */
-.answerRow {
-    margin: 15px 0 10px;
-}
-
-.guessArea {
-    margin-top: 10px;
-    margin-bottom: 20px;
-}
-
-.bottomButtons {
-    margin-top: 0;
-    gap: 18px;
-}
-#guessBtn,
-#revealBtn,
-#newGameBtn {
-    width: 80%;
-    height: 48px;
-    font-size: 16px;
-    margin: 0 auto;
-}
-.history {
-    margin-top: 30px;
-}
-/* ================= GUESS SECTION ================= */
-
-.guessArea {
-    width: 88%;
-    margin: 30px auto 0;
-
+footer {
+    background: #050505;
+    border-top: 1px solid #333;
+    padding: 35px 6%;
     display: flex;
-    flex-direction: column;
-    gap: 18px;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
-/* ================= BOTTOM BUTTONS ================= */
-
-.bottomButtons {
-    width: 88%;
-    margin: 18px auto 0;
-
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
+footer h2 {
+    font-family: 'Russo One',sans-serif;
+    color: #b00000;
 }
 
-/* All four elements same width */
-
-#guessInput,
-#guessBtn,
-#revealBtn,
-#newGameBtn {
-    width: 100%;
-    box-sizing: border-box;
+footer p {
+    color: #777;
+    font-size: 11px;
+    margin-top: 8px;
 }
 
-/* Input */
+/* RESPONSIVE */
 
-#guessInput {
-    height: 52px;
-}
-
-/* Buttons */
-
-#guessBtn,
-#revealBtn,
-#newGameBtn {
-    height: 50px;
-}
-/* ================= BOTTOM SECTION ================= */
-
-.guessArea {
-    width: 88%;
-    margin: 20px auto 0;
-    gap: 14px;
-}
-
-#guessInput {
-    width: 100%;
-    height: 48px;
-}
-
-/* Buttons */
-
-.bottomButtons {
-    width: 88%;
-    margin: 18px auto 0;
-
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-}
-
-#guessBtn,
-#revealBtn,
-#newGameBtn {
-    width: 100%;
-    height: 48px;
-}
-
-/* Question History */
-
-#historyBtn {
-    width: 88%;
-    height: 40px;
-
-    margin: 18px auto 0;
-
-    font-size: 13px;
-}
-#historyBtn {
-    margin: 4px auto 0;
-}
-.history {
-    margin-top: 5px !important;
-}
-#loader{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:#090909;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    z-index:99999;
-    transition:opacity .6s ease;
-}
-
-#loader h1{
-    font-family:'Bebas Neue',sans-serif;
-    font-size:62px;
-    color:#b00000;
-    letter-spacing:4px;
-    text-shadow:0 0 10px rgba(180,0,0,.4);
-    margin-bottom:8px;
-}
-
-#loader p{
-    color:#bfbfbf;
-    font-size:15px;
-    letter-spacing:2px;
-    margin-bottom:35px;
-}
-
-.loading-bar{
-    width:180px;
-    height:5px;
-    background:#1d1d1d;
-    border-radius:20px;
-    overflow:hidden;
-}
-
-.loading-fill{
-    width:0%;
-    height:100%;
-    background:linear-gradient(90deg,#400000,#a00000,#400000);
-    animation:loadBar 1.6s linear forwards;
-}
-
-#loader span{
-    margin-top:18px;
-    color:#888;
-    font-size:14px;
-    letter-spacing:2px;
-}
-
-@keyframes loadBar{
-    from{
-        width:0%;
+@media(max-width:600px) {
+    nav {
+        padding: 0 15px;
+        height: 55px;
     }
-    to{
-        width:100%;
+
+    nav ul {
+        gap: 12px;
+    }
+
+    nav li {
+        font-size: 9px;
+    }
+
+    .logo {
+        font-size: 18px;
+    }
+
+    .hero {
+        min-height: 350px;
+        padding: 55px 22px;
+    }
+
+    .hero::after {
+        font-size: 220px;
+        right: -10px;
+        top: 50px;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .features {
+        grid-template-columns: repeat(3,1fr);
+    }
+
+    .feature {
+        padding: 18px 5px;
+    }
+
+    .feature h3 {
+        font-size: 10px;
+    }
+
+    .feature p {
+        font-size: 9px;
+    }
+
+    .section-heading h2 {
+        font-size: 26px;
+    }
+
+    .game-section {
+        padding: 40px 12px;
+    }
+
+    .container {
+        padding: 22px 15px;
+    }
+
+    footer {
+        text-align: center;
+        justify-content: center;
     }
 }
-#loader h1{
-    font-family:'Russo One',sans-serif;
-    font-size:30px;
-    color:#b00000;
-    letter-spacing:3px;
-    text-shadow:0 0 10px rgba(180,0,0,.4);
-}
-/* ================= POINTED RPG BUTTONS ================= */
+</style>
+</head>
 
-#askBtn,
-#guessBtn,
-#revealBtn,
-#newGameBtn {
-    position: relative;
-    background: linear-gradient(
-        180deg,
-        #930000,
-        #760000 50%,
-        #3b0000
-    );
+<body>
 
-    color: #fff;
-    
+<!-- NAVIGATION -->
 
-    font-family: 'Cinzel', serif !important;
-    font-weight: 400;
-    letter-spacing: 1px;
+<nav>
+    <div class="logo">MOO<span>SAMEDHAM</span></div>
 
-    cursor: pointer;
-    z-index: 1;
+    <ul>
+        <li>HOME</li>
+        <li>STORY</li>
+        <li>GAME</li>
+    </ul>
+</nav>
 
-    clip-path: polygon(
-        0 50%,
-        10% 0,
-        90% 0,
-        100% 50%,
-        90% 100%,
-        10% 100%
-    );
+<!-- HERO -->
 
-    box-shadow:
-        inset 0 0 12px rgba(164,0,0,0.8),
-        0 3px 8px rgba(119,0,0,0.7);
+<section class="hero">
+    <div class="hero-content">
 
-    text-shadow: 2px 2px 2px #000;
+        <small>AN UNKNOWN ADVENTURE PRESENTS</small>
 
-    transition: .15s ease;
+        <h1>
+            MOO<br>
+            SAMEDHAM<span>.</span>
+        </h1>
 
-    -webkit-tap-highlight-color: transparent;
-}
+        <p>
+            THINK OF SOMEONE.<br>
+            ANSWER THE QUESTIONS.<br>
+            LET THE GAME GUESS YOUR MIND.
+        </p>
 
+        <div class="hero-buttons">
+            <button onclick="document.getElementById('game').scrollIntoView({behavior:'smooth'})">
+                PLAY NOW →
+            </button>
+        </div>
 
-/* ================= ASK ================= */
+    </div>
+</section>
 
-#askBtn {
-    width: 76px;
-    height: 46px;
+<!-- FEATURES -->
 
-    padding: 0;
+<section class="features">
 
-    font-size: 14px;
-}
+    <div class="feature">
+        <div class="symbol">♟</div>
+        <h3>THINK</h3>
+        <p>Choose a character in your mind.</p>
+    </div>
 
+    <div class="feature">
+        <div class="symbol">⚔</div>
+        <h3>ANSWER</h3>
+        <p>Answer questions honestly.</p>
+    </div>
 
-/* ================= MAIN BUTTONS ================= */
+    <div class="feature">
+        <div class="symbol">★</div>
+        <h3>GUESS</h3>
+        <p>See if the game can find your character.</p>
+    </div>
 
-#guessBtn,
-#revealBtn,
-#newGameBtn {
-    width: 100%;
-    height: 48px;
+</section>
 
-    margin: 0 auto;
+<!-- GAME -->
 
-    font-size: 17px;
-}
+<section class="game-section" id="game">
 
+    <div class="section-heading">
+        <small>THE ADVENTURE BEGINS</small>
+        <h2>THE GUESSING GAME</h2>
+    </div>
 
-/* ================= HOVER ================= */
+    <div class="container">
 
-#askBtn:hover,
-#guessBtn:hover,
-#revealBtn:hover,
-#newGameBtn:hover {
-    background: linear-gradient(
-        180deg,
-        #9b0000,
-        #920000 50%,
-        #4a0000
-    );
+        <h1>MOO SAMEDHAM</h1>
 
-    transform: scale(1.02);
-}
+        <p class="subtitle">OUTLAWS FOR LIFE</p>
 
+        <!-- PLAYER ROW -->
 
-/* ================= PRESS ================= */
+        <div class="topRow">
 
-#askBtn:active,
-#guessBtn:active,
-#revealBtn:active,
-#newGameBtn:active {
-    transform: scale(.97);
-}
-#askBtn,
-#guessBtn,
-#revealBtn,
-#newGameBtn {
-    font-family: 'Russo One', sans-serif !important;
-    font-weight: 400;
-    letter-spacing: 1px;
-}
-#answer {
-    font-family: 'Russo One', sans-serif !important;
-    font-weight: 400;
-    letter-spacing: 0.5px;
-}
-#askBtn {
-    width: 70px !important;
-    height: 42px !important;
+            <div class="player">
+                <img src="https://i.imgur.com/6VBx3io.png"
+                     class="avatar" alt="Player">
+                <p>YOU</p>
+            </div>
 
-    padding: 0 !important;
-    margin: 0 !important;
+            <div class="counter">
+                <div class="circle" id="questionsLeft">20</div>
+                <span>QUESTIONS LEFT</span>
+            </div>
 
-    border: 2px solid #3d0000 !important;
-    border-radius: 10px !important;
+            <div class="player">
+                <div class="avatar" style="display:flex;align-items:center;justify-content:center;background:#260909;font-size:27px;">
+                    ?
+                </div>
+                <p>GAME</p>
+            </div>
 
-    background: linear-gradient(
-        180deg,
-        #9b0808,
-        #7f0a0a
-    ) !important;
+        </div>
 
-    color: white !important;
+        <!-- QUESTION INPUT -->
 
-    font-family: 'Russo One', sans-serif !important;
-    font-size: 15px !important;
-    font-weight: 400 !important;
-    letter-spacing: .5px !important;
+        <div class="questionBox">
+            <input type="text" id="questionInput"
+                   placeholder="Ask your question...">
+            <button id="askBtn">ASK</button>
+        </div>
 
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
+        <!-- ANSWER -->
 
-    /* Slightly pointed corners */
-    clip-path: polygon(
-        7% 0,
-        93% 0,
-        100% 50%,
-        93% 100%,
-        7% 100%,
-        0 50%
-    ) !important;
+        <div class="answerRow">
+            <div class="player">
+                <div id="answer">...</div>
+                <p>ANSWER</p>
+            </div>
+        </div>
 
-    box-shadow:
-        inset 0 0 8px rgba(0,0,0,.5),
-        0 2px 5px rgba(0,0,0,.6) !important;
+        <!-- GUESS -->
 
-    text-shadow: 1px 1px 2px #000 !important;
+        <div class="guessArea">
+            <input type="text" id="guessInput"
+                   placeholder="Enter your character's name...">
 
-    outline: none !important;
-}
+            <button id="guessBtn">MAKE A GUESS</button>
+        </div>
 
-/* Remove old effects */
-#askBtn::before,
-#askBtn::after {
-    display: none !important;
-}
+        <!-- ACTIONS -->
 
-/* Hover */
-#askBtn:hover {
-    background: #900000 !important;
-}
+        <div class="bottomButtons">
+            <button id="revealBtn">REVEAL ANSWER</button>
+            <button id="newGameBtn">NEW GAME</button>
+        </div>
 
-/* Touch */
-#askBtn:active {
-    transform: scale(.97) !important;
-}
+        <button id="historyBtn">QUESTION HISTORY</button>
 
-/* Focus */
-#askBtn:focus {
-    outline: none !important;
-    box-shadow:
-        inset 0 0 8px rgba(0,0,0,.5),
-        0 2px 5px rgba(0,0,0,.6) !important;
-}
+        <!-- HISTORY -->
+
+        <div class="history">
+            <h3>YOUR JOURNEY</h3>
+            <div id="historyList"></div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div>
+        <h2>MOO SAMEDHAM</h2>
+        <p>OUTLAWS FOR LIFE.</p>
+    </div>
+
+    <p>© 2026 MOO SAMEDHAM. ALL RIGHTS RESERVED.</p>
+
+</footer>
+
+<!-- KEEP YOUR EXISTING JAVASCRIPT BELOW -->
+
+</body>
+</html>
