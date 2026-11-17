@@ -1,1315 +1,417 @@
+/* ============ BASE ============ */
+:root{
+  --red:#a31d15;
+  --red-dark:#7d140e;
+  --ink:#16100f;
+  --paper:#eadfcb;
+  --paper-2:#dccfb5;
+  --mute:#7a6f5d;
+}
+
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  -webkit-tap-highlight-color:transparent;
 }
 
 body{
-
-background:#0d0d0d;
-
-font-family:'Outfit',sans-serif;
-
-color:#fff;
-
-display:flex;
-
-justify-content:center;
-
-padding:15px;
-
-min-height:100vh;
-
+  background:var(--red);
+  font-family:'Outfit',system-ui,sans-serif;
+  color:var(--ink);
+  display:flex;
+  justify-content:center;
+  padding:16px 14px 40px;
+  min-height:100vh;
 }
 
 .container{
-
-width:100%;
-
-max-width:420px;
-
+  width:100%;
+  max-width:420px;
+  background:var(--paper);
+  border:3px solid var(--ink);
+  box-shadow:7px 7px 0 var(--ink);
+  padding:20px 16px 24px;
 }
+
+/* ============ TITLE ============ */
 h1{
-    font-family:'Russo One',sans-serif;
-    font-size:30px;
-    color:#930000;
-    text-align:center;
-    letter-spacing:2px;
-    text-shadow:none;
-  margin-bottom:0px;
-}
-.subtitle {
-    text-align: center;
-    color: #888;
-    font-size: 14px;
-    letter-spacing: 2px;
-    margin-top: 0px;
-    margin-bottom: 25px;
+  font-family:'Russo One',Impact,sans-serif;
+  font-weight:400;
+  font-size:34px;
+  line-height:1;
+  text-align:center;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  color:var(--red);
 }
 
-/* ---------- TOP ---------- */
+.subtitle{
+  text-align:center;
+  font-size:12px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  font-weight:600;
+  color:var(--mute);
+  margin:6px 0 20px;
+  padding-bottom:14px;
+  border-bottom:3px solid var(--ink);
+}
 
-.top{
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:flex-start;
-
-margin-bottom:20px;
-
+/* ============ TOP ROW (players + counter) ============ */
+.top,
+.topRow{
+  display:grid;
+  grid-template-columns:76px 1fr 76px;
+  gap:10px;
+  align-items:center;
+  margin-bottom:6px;
 }
 
 .player{
-
-display:flex;
-
-flex-direction:column;
-
-align-items:center;
-
-width:80px;
-
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  width:76px;
 }
 
 .avatar{
-
-width:70px;
-
-height:70px;
-
-border-radius:50%;
-
-border:3px solid #e50914;
-
-object-fit:cover;
-
-box-shadow:0 0 15px rgba(229,9,20,.5);
-
+  width:70px;
+  height:70px;
+  object-fit:cover;
+  border:3px solid var(--ink);
+  border-radius:0;
+  background:var(--paper-2);
+  filter:grayscale(.4) contrast(1.05);
 }
 
 .player p{
-
-margin-top:8px;
-
-font-size:13px;
-
-font-weight:600;
-
-text-align:center;
-
+  margin-top:6px;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  text-align:center;
 }
 
+/* ============ COUNTER ============ */
 .counter{
-
-display:flex;
-
-flex-direction:column;
-
-align-items:center;
-
-margin-top:5px;
-
-}
-
-#questionsLeft{
-
-width:65px;
-
-height:65px;
-
-border-radius:50%;
-
-background:#1b1b1b;
-
-border:3px solid #e50914;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-font-size:26px;
-
-font-weight:bold;
-
-box-shadow:0 0 20px rgba(229,9,20,.4);
-
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  margin:22px 0;
 }
 
 .counter span{
-
-margin-top:8px;
-
-font-size:12px;
-
-color:#bbb;
-
+  margin-top:8px;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  color:var(--mute);
 }
 
-/* ---------- QUESTION ---------- */
-
-.questionArea{
-
-display:flex;
-
-gap:10px;
-
-align-items:center;
-
-margin-bottom:25px;
-
+#questionsLeft,
+.circle{
+  width:74px;
+  height:74px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:var(--paper-2);
+  border:3px solid var(--ink);
+  border-radius:0;
+  transform:rotate(-4deg);
+  font-family:'Russo One',Impact,sans-serif;
+  font-size:32px;
+  color:var(--ink);
 }
 
-.questionArea input{
-
-flex:1;
-
-height:50px;
-
-padding:0 15px;
-
-background:#1b1b1b;
-
-border:2px solid #333;
-
-border-radius:25px;
-
-color:white;
-
-font-size:15px;
-
-outline:none;
-
-transition:.3s;
-
+/* ============ QUESTION INPUT ============ */
+.questionArea,
+.questionBox{
+  display:flex;
+  gap:8px;
+  align-items:center;
+  margin-bottom:22px;
 }
 
-.questionArea input:focus{
-
-border-color:#e50914;
-
+input{
+  font-family:'Outfit',system-ui,sans-serif;
+  color:var(--ink);
+  background:#f6eedd;
+  border:3px solid var(--ink);
+  border-radius:0;
+  outline:none;
 }
 
-#askBtn{
-    width:65px;
-    height:48px;
-    border-radius:18px;
-}
-/* ================= ANSWER ================= */
-
-.answerArea{
-
-display:flex;
-
-justify-content:flex-end;
-
-align-items:center;
-
-gap:12px;
-
-margin-bottom:25px;
-
+input::placeholder{
+  color:#8d826f;
+  font-weight:400;
 }
 
-
-
-.answerArea .player{
-
-width:75px;
-
+input:focus{
+  background:#fff;
+  border-color:var(--red);
 }
-
-/* ================= GUESS ================= */
-
-.guessArea{
-
-display:flex;
-
-flex-direction:column;
-
-align-items:center;
-
-gap:12px;
-
-margin-bottom:25px;
-
-}
-
-.guessArea input{
-
-width:100%;
-
-height:50px;
-
-padding:0 15px;
-
-background:#1b1b1b;
-
-border:2px solid #444;
-
-border-radius:25px;
-
-color:white;
-
-font-size:15px;
-
-outline:none;
-
-transition:.3s;
-
-}
-
-.guessArea input:focus{
-
-border-color:#ffd700;
-
-}
-
-#guessBtn{
-
-width:170px;
-
-height:48px;
-
-background:#ffd700;
-
-color:#111;
-
-border:none;
-
-border-radius:25px;
-
-font-weight:700;
-
-font-size:16px;
-
-cursor:pointer;
-
-transition:.3s;
-
-}
-
-/* ================= BOTTOM ================= */
-
-.bottomButtons{
-
-display:flex;
-
-flex-direction:column;
-
-gap:12px;
-
-}
-
-.bottomButtons button{
-
-height:50px;
-
-border:none;
-
-border-radius:25px;
-
-font-size:16px;
-
-font-weight:700;
-
-cursor:pointer;
-
-transition:.3s;
-
-}
-
-#summaryBtn{
-
-background:#2f2f2f;
-
-color:white;
-
-}
-
-#revealBtn{
-
-background:#e50914;
-
-color:white;
-
-}
-
-#newGameBtn{
-
-background:#0f8f4d;
-
-color:white;
-
-}
-
-/* ================= HOVER ================= */
-
-button:hover{
-
-transform:translateY(-2px);
-
-}
-
-#askBtn:hover{
-
-background:#8c0008;
-
-box-shadow:0 0 18px rgba(229,9,20,.45);
-
-}
-
-#guessBtn:hover{
-
-background:#780000df;
-
-
-}
-
-#summaryBtn:hover{
-
-background:#610000;
-
-}
-
-#revealBtn:hover{
-
-background:#8f0009;
-
-}
-
-#newGameBtn:hover{
-
-background:#7d0000;
-
-}
-
-/* ================= RESPONSIVE ================= */
-
-@media(max-width:420px){
-
-.container{
-
-padding:5px;
-
-}
-
-
 
 .questionArea input,
-
-.guessArea input{
-
-font-size:14px;
-
+.questionBox input{
+  flex:1;
+  min-width:0;
+  height:48px;
+  padding:0 14px;
+  font-size:16px;
+  font-weight:600;
 }
 
-}
-.topRow{
-    display:grid;
-    grid-template-columns:75px 1fr 65px;
-    gap:12px;
-    align-items:center;
+/* ============ BUTTONS (shared) ============ */
+button{
+  font-family:'Russo One',Impact,sans-serif;
+  font-weight:400;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  color:var(--paper);
+  background:var(--ink);
+  border:3px solid var(--ink);
+  border-radius:0;
+  box-shadow:4px 4px 0 var(--red);
+  cursor:pointer;
+  transition:transform .08s, box-shadow .08s;
 }
 
-
-.counter{
-    display:flex;
-    justify-content:center;
-    margin:30px 0;
+button:hover{
+  background:var(--red-dark);
 }
 
+button:active{
+  transform:translate(4px,4px);
+  box-shadow:none;
+}
+
+button:focus{
+  outline:none;
+}
+
+#askBtn{
+  width:74px;
+  height:48px;
+  font-size:15px;
+  padding:0;
+}
+
+/* ============ ANSWER (stamp) ============ */
+.answerArea,
 .answerRow{
-
-display:flex;
-
-justify-content:flex-end;
-
-align-items:center;
-
-gap:15px;
-
-margin:25px 0;
-
-}
-.counter{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    margin:35px 0;
+  display:flex;
+  justify-content:flex-end;
+  align-items:center;
+  gap:12px;
+  margin:6px 0 22px;
 }
 
-.circle{
-    width:75px;
-    height:75px;
-    border-radius:50%;
-    border:3px solid #E50914;
-    background:#171717;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    color:#fff;
-    font-size:30px;
-    font-weight:bold;
-    box-shadow:0 0 18px rgba(229,9,20,.6);
-}
-
-.questionBox input{
-    font-family:'Outfit',sans-serif;
-    font-size:17px;
-    font-weight:600;
-    letter-spacing:0.5px;
-}
-#askBtn{
-    width:65px;
-    height:48px;
-    border-radius:18px;
-}
-.questionBox input{
-
-width:100%;
-
-height:52px;
-
-padding:0 20px;
-
-background:#161616;
-
-border:2px solid #E50914;
-
-border-radius:30px;
-
-color:white;
-
-font-size:16px;
-
-outline:none;
-
-transition:.3s;
-
-box-shadow:0 0 12px rgba(229,9,20,.35);
-
-}
-
-.questionBox input::placeholder{
-
-color:#888;
-
-}
-
-.questionBox input:focus{
-
-border-color:#8d0000;
-
-box-shadow:0 0 20px rgba(167,0,0,0.6);
-
-}
 #answer{
-
-display:inline-flex;
-
-align-items:center;
-
-justify-content:center;
-
-min-width:90px;
-
-max-width:170px;
-
-min-height:42px;
-
-padding:8px 18px;
-
-background:linear-gradient(180deg,#8e0007,#b30000);
-
-color:white;
-
-font-size:16px;
-
-font-weight:700;
-
-border:none;
-
-border-radius:999px;
-
-box-shadow:0 0 15px rgb(200,0,0);
-
-text-align:center;
-
-word-wrap:break-word;
-
-}
-#askBtn{
-    width:75px;
-    height:42px;
-    background:#6c0005;
-    color:#fff;
-    border:none;
-    border-radius:999px;
-
-    font-family:'Outfit',sans-serif;
-    font-size:15px;
-    font-weight:700;
-    letter-spacing:0.5px;
-
-    cursor:pointer;
-    transition:.2s;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:96px;
+  max-width:190px;
+  min-height:44px;
+  padding:6px 16px;
+  font-family:'Russo One',Impact,sans-serif;
+  font-weight:400;
+  font-size:18px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  text-align:center;
+  color:var(--red);
+  background:transparent;
+  border:4px solid var(--red);
+  border-radius:0;
+  transform:rotate(-4deg);
+  word-wrap:break-word;
 }
 
-#askBtn:hover{
-    background:#930008;
+/* ============ GUESS + ACTIONS ============ */
+.guessArea{
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  margin:0 0 14px;
 }
 
-#askBtn:active{
-    transform:scale(.96);
+#guessInput{
+  width:100%;
+  height:48px;
+  padding:0 14px;
+  font-size:16px;
+  font-weight:600;
 }
+
 .bottomButtons{
-
-display:flex;
-
-flex-direction:column;
-
-gap:18px;
-
-margin-top:30px;
-
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  margin:0;
 }
 
-/* Common Style */
-
-.bottomButtons button{
-
-width:100%;
-
-height:55px;
-
-border:none;
-
-border-radius:999px;
-
-font-family:'Outfit',sans-serif;
-
-font-size:18px;
-
-font-weight:700;
-
-letter-spacing:1px;
-
-color:white;
-
-cursor:pointer;
-
-transition:.25s;
-
+#guessBtn,
+#revealBtn,
+#newGameBtn,
+#historyBtn{
+  width:100%;
+  height:48px;
+  font-size:16px;
+  margin:0;
 }
-
-/* Guess */
 
 #guessBtn{
-
-background:linear-gradient(180deg,#8b0000,#d10000);
-
+  background:var(--red);
+  border-color:var(--ink);
+  box-shadow:4px 4px 0 var(--ink);
 }
 
 #guessBtn:hover{
-
-background:#820000;
-
-transform:scale(1.02);
-
+  background:var(--red-dark);
 }
 
-/* Reveal */
-
-#revealBtn{
-
-background:linear-gradient(180deg,#840000,#8b0000);
-
-}
-
-#revealBtn:hover{
-
-background:#700000;
-
-transform:scale(1.02);
-
-}
-
-/* New Game */
-
-#newGameBtn{
-
-background:linear-gradient(180deg,#720000,#d60000);
-
-}
-
-#newGameBtn:hover{
-
-background:#b30000;
-
-transform:scale(1.02);
-
-}
-/* ALL ACTION BUTTONS */
-
-#guessBtn,
 #revealBtn,
 #newGameBtn{
-
-    width:100%;
-    height:58px;
-
-    border:none;
-    border-radius:999px;
-
-    background:#800000;
-
-    color:#fff;
-
-    font-family:'Outfit',sans-serif;
-    font-size:18px;
-    font-weight:700;
-    letter-spacing:1px;
-
-    cursor:pointer;
-
-    transition:.25s;
-
-
+  background:var(--paper);
+  color:var(--ink);
+  box-shadow:4px 4px 0 var(--ink);
 }
 
-#guessBtn:hover,
 #revealBtn:hover,
-#newGameBtn:hover {
-    background: #610000;
-    transform: none;
-
-
-}
-#guessInput{
-
-    width:100%;
-    height:56px;
-
-    background:#151515;
-
-    border:2px solid #3b3b3b;
-
-    border-radius:999px;
-
-    color:#fff;
-
-    padding:0 24px;
-
-    font-family:'Outfit',sans-serif;
-
-    font-size:18px;
-
-    font-weight:600;
-
-    outline:none;
-
-    transition:.25s;
-
+#newGameBtn:hover{
+  background:var(--paper-2);
 }
 
-#guessInput::placeholder{
-
-    color:#7f7f7f;
-
+#historyBtn{
+  height:40px;
+  font-size:13px;
+  margin-top:6px;
+  background:transparent;
+  color:var(--ink);
+  box-shadow:none;
 }
 
-#guessInput:focus{
-
-    border-color:#960008;
-
-    
-
-}
-#guessBtn,
-#revealBtn,
-#newGameBtn{
-
-    width:88%;
-    height:50px;
-
-    margin:auto;
-
-    border:none;
-    border-radius:999px;
-
-    background:#610000;
-
-    color:#fff;
-
-    font-family:'Outfit',sans-serif;
-    font-size:16px;
-    font-weight:700;
-    letter-spacing:1px;
-
-  
-
-}
-#askBtn{
-    font-family:'Outfit', sans-serif !important;
-    font-size:16px !important;
-    font-weight:700 !important;
-}
-.guessArea{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:18px;
-    margin-top:30px;
+#historyBtn:hover{
+  background:var(--paper-2);
 }
 
-#guessInput,
-#guessBtn,
-#revealBtn,
-#newGameBtn{
-    width:88%;
-    margin:0 auto;
-    display:block;
-    box-sizing:border-box;
+#historyBtn:active{
+  transform:none;
 }
 
-#guessInput{
-    height:52px;
+/* ============ HISTORY ============ */
+.history{
+  width:100%;
+  margin:22px 0 0;
+  border-top:3px solid var(--ink);
+  padding-top:14px;
 }
 
-#guessBtn,
-#revealBtn,
-#newGameBtn{
-    height:50px;
-    border-radius:999px;
-}
-#guessBtn{
-    width:88%;
-}
-button,
-input{
-    -webkit-tap-highlight-color: transparent;
-    outline: none;
+.history h3{
+  font-family:'Russo One',Impact,sans-serif;
+  font-weight:400;
+  font-size:16px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  text-align:center;
+  color:var(--ink);
+  margin-bottom:10px;
 }
 
-button:focus,
-button:active,
-input:focus{
-    outline: none;
-    box-shadow: none;
+.historyItem{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  padding:10px 2px;
+  font-size:14px;
+  background:transparent;
+  border-radius:0;
+  border-bottom:2px dashed var(--ink);
+  margin:0;
 }
 
-#askBtn{
-    -webkit-tap-highlight-color: transparent;
+.historyItem:last-child{
+  border-bottom:0;
 }
 
-#askBtn:active{
-    background:#940000;
-    transform:scale(0.97);
-}
-#askBtn{
-
-    width:75px;
-    height:42px;
-
-    background:#800000;
-    color:white;
-
-    border:none;
-    border-radius:999px;
-
-    font-family:'Outfit',sans-serif;
-    font-size:16px;
-    font-weight:700;
-
-    cursor:pointer;
-
-    box-shadow:none;
-    outline:none;
-
-    transition:background .2s, transform .15s;
-
-    -webkit-tap-highlight-color:transparent;
+.historyQuestion{
+  flex:1;
+  color:var(--ink);
 }
 
-#askBtn:hover{
-    background:#850000;
+.historyAnswer{
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:1px;
 }
 
-#askBtn:focus,
-#askBtn:active{
-    outline:none;
-    box-shadow:none;
-    background:#7a0000;
-}
+.answer-yes{color:#1d6b2a}
+.answer-no{color:var(--red)}
+.answer-probably{color:#a86a00}
+.answer-unknown{color:var(--mute)}
 
-#askBtn:active{
-    transform:scale(0.97);
-}
-body {
-    margin: 0;
-    min-height: 100vh;
-
-    background:
-        radial-gradient(
-            circle at 15% 20%,
-            rgba(180, 0, 0, 0.20),
-            transparent 25%
-        ),
-        radial-gradient(
-            circle at 85% 80%,
-            rgba(180, 0, 0, 0.18),
-            transparent 30%
-        ),
-        repeating-linear-gradient(
-            135deg,
-            rgba(255, 0, 0, 0.035) 0px,
-            rgba(255, 0, 0, 0.035) 2px,
-            transparent 2px,
-            transparent 8px
-        ),
-        #080808;
-}
-#guessBtn,
-#revealBtn,
-#newGameBtn {
-    -webkit-tap-highlight-color: transparent !important;
-    outline: none !important;
-    box-shadow: none !important;
-    filter: none !important;
-}
-
-#guessBtn:focus,
-#revealBtn:focus,
-#newGameBtn:focus {
-    outline: none !important;
-    box-shadow: none !important;
-}
-
-#guessBtn:active,
-#revealBtn:active,
-#newGameBtn:active {
-    outline: none !important;
-    box-shadow: none !important;
-    filter: none !important;
-}
-.history {
-    width: 88%;
-    margin: 30px auto;
-}
-
-.history h3 {
-    text-align: center;
-    color: #888;
-    font-size: 15px;
-    letter-spacing: 2px;
-    margin-bottom: 15px;
-}
-
-.historyItem {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-
-    background: #151515;
-    border-radius: 12px;
-
-    padding: 12px 15px;
-    margin-bottom: 10px;
-
-    font-size: 14px;
-}
-
-.historyQuestion {
-    color: #ddd;
-    flex: 1;
-}
-
-.historyAnswer {
-    font-weight: bold;
-}
-
-/* ANSWER COLOURS */
-
-.answer-yes {
-    color: #00c853;
-}
-
-.answer-no {
-    color: #ff3030;
-}
-
-.answer-probably {
-    color: #ffc107;
-}
-
-.answer-unknown {
-    color: #888;
-}
-/* Better vertical alignment */
-.answerRow {
-    margin: 15px 0 10px;
-}
-
-.guessArea {
-    margin-top: 10px;
-    margin-bottom: 20px;
-}
-
-.bottomButtons {
-    margin-top: 0;
-    gap: 18px;
-}
-#guessBtn,
-#revealBtn,
-#newGameBtn {
-    width: 80%;
-    height: 48px;
-    font-size: 16px;
-    margin: 0 auto;
-}
-.history {
-    margin-top: 30px;
-}
-/* ================= GUESS SECTION ================= */
-
-.guessArea {
-    width: 88%;
-    margin: 30px auto 0;
-
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-}
-
-/* ================= BOTTOM BUTTONS ================= */
-
-.bottomButtons {
-    width: 88%;
-    margin: 18px auto 0;
-
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-}
-
-/* All four elements same width */
-
-#guessInput,
-#guessBtn,
-#revealBtn,
-#newGameBtn {
-    width: 100%;
-    box-sizing: border-box;
-}
-
-/* Input */
-
-#guessInput {
-    height: 52px;
-}
-
-/* Buttons */
-
-#guessBtn,
-#revealBtn,
-#newGameBtn {
-    height: 50px;
-}
-/* ================= BOTTOM SECTION ================= */
-
-.guessArea {
-    width: 88%;
-    margin: 20px auto 0;
-    gap: 14px;
-}
-
-#guessInput {
-    width: 100%;
-    height: 48px;
-}
-
-/* Buttons */
-
-.bottomButtons {
-    width: 88%;
-    margin: 18px auto 0;
-
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-}
-
-#guessBtn,
-#revealBtn,
-#newGameBtn {
-    width: 100%;
-    height: 48px;
-}
-
-/* Question History */
-
-#historyBtn {
-    width: 88%;
-    height: 40px;
-
-    margin: 18px auto 0;
-
-    font-size: 13px;
-}
-#historyBtn {
-    margin: 4px auto 0;
-}
-.history {
-    margin-top: 5px !important;
-}
+/* ============ LOADER ============ */
 #loader{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:#090909;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    z-index:99999;
-    transition:opacity .6s ease;
+  position:fixed;
+  inset:0;
+  background:var(--red);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  z-index:99999;
+  transition:opacity .5s ease;
 }
 
 #loader h1{
-    font-family:'Bebas Neue',sans-serif;
-    font-size:62px;
-    color:#b00000;
-    letter-spacing:4px;
-    text-shadow:0 0 10px rgba(180,0,0,.4);
-    margin-bottom:8px;
+  font-family:'Russo One',Impact,sans-serif;
+  font-size:40px;
+  color:var(--paper);
+  letter-spacing:3px;
+  margin-bottom:8px;
 }
 
 #loader p{
-    color:#bfbfbf;
-    font-size:15px;
-    letter-spacing:2px;
-    margin-bottom:35px;
+  color:var(--paper);
+  font-size:13px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  margin-bottom:28px;
 }
 
 .loading-bar{
-    width:180px;
-    height:5px;
-    background:#1d1d1d;
-    border-radius:20px;
-    overflow:hidden;
+  width:190px;
+  height:12px;
+  background:transparent;
+  border:3px solid var(--paper);
+  border-radius:0;
+  overflow:hidden;
 }
 
 .loading-fill{
-    width:0%;
-    height:100%;
-    background:linear-gradient(90deg,#400000,#a00000,#400000);
-    animation:loadBar 1.6s linear forwards;
+  width:0%;
+  height:100%;
+  background:var(--paper);
+  animation:loadBar 1.6s steps(8) forwards;
 }
 
 #loader span{
-    margin-top:18px;
-    color:#888;
-    font-size:14px;
-    letter-spacing:2px;
+  margin-top:16px;
+  color:var(--paper);
+  font-size:12px;
+  letter-spacing:2px;
+  text-transform:uppercase;
 }
 
 @keyframes loadBar{
-    from{
-        width:0%;
-    }
-    to{
-        width:100%;
-    }
-}
-#loader h1{
-    font-family:'Russo One',sans-serif;
-    font-size:30px;
-    color:#b00000;
-    letter-spacing:3px;
-    text-shadow:0 0 10px rgba(180,0,0,.4);
-}
-/* ================= POINTED RPG BUTTONS ================= */
-
-#askBtn,
-#guessBtn,
-#revealBtn,
-#newGameBtn {
-    position: relative;
-    background: linear-gradient(
-        180deg,
-        #930000,
-        #760000 50%,
-        #3b0000
-    );
-
-    color: #fff;
-    
-
-    font-family: 'Cinzel', serif !important;
-    font-weight: 400;
-    letter-spacing: 1px;
-
-    cursor: pointer;
-    z-index: 1;
-
-    clip-path: polygon(
-        0 50%,
-        10% 0,
-        90% 0,
-        100% 50%,
-        90% 100%,
-        10% 100%
-    );
-
-    box-shadow:
-        inset 0 0 12px rgba(164,0,0,0.8),
-        0 3px 8px rgba(119,0,0,0.7);
-
-    text-shadow: 2px 2px 2px #000;
-
-    transition: .15s ease;
-
-    -webkit-tap-highlight-color: transparent;
-}
-
-
-/* ================= ASK ================= */
-
-#askBtn {
-    width: 76px;
-    height: 46px;
-
-    padding: 0;
-
-    font-size: 14px;
-}
-
-
-/* ================= MAIN BUTTONS ================= */
-
-#guessBtn,
-#revealBtn,
-#newGameBtn {
-    width: 100%;
-    height: 48px;
-
-    margin: 0 auto;
-
-    font-size: 17px;
-}
-
-
-/* ================= HOVER ================= */
-
-#askBtn:hover,
-#guessBtn:hover,
-#revealBtn:hover,
-#newGameBtn:hover {
-    background: linear-gradient(
-        180deg,
-        #9b0000,
-        #920000 50%,
-        #4a0000
-    );
-
-    transform: scale(1.02);
-}
-
-
-/* ================= PRESS ================= */
-
-#askBtn:active,
-#guessBtn:active,
-#revealBtn:active,
-#newGameBtn:active {
-    transform: scale(.97);
-}
-#askBtn,
-#guessBtn,
-#revealBtn,
-#newGameBtn {
-    font-family: 'Russo One', sans-serif !important;
-    font-weight: 400;
-    letter-spacing: 1px;
-}
-#answer {
-    font-family: 'Russo One', sans-serif !important;
-    font-weight: 400;
-    letter-spacing: 0.5px;
-}
-#askBtn {
-    width: 70px !important;
-    height: 42px !important;
-
-    padding: 0 !important;
-    margin: 0 !important;
-
-    border: 2px solid #3d0000 !important;
-    border-radius: 10px !important;
-
-    background: linear-gradient(
-        180deg,
-        #9b0808,
-        #7f0a0a
-    ) !important;
-
-    color: white !important;
-
-    font-family: 'Russo One', sans-serif !important;
-    font-size: 15px !important;
-    font-weight: 400 !important;
-    letter-spacing: .5px !important;
-
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-
-    /* Slightly pointed corners */
-    clip-path: polygon(
-        7% 0,
-        93% 0,
-        100% 50%,
-        93% 100%,
-        7% 100%,
-        0 50%
-    ) !important;
-
-    box-shadow:
-        inset 0 0 8px rgba(0,0,0,.5),
-        0 2px 5px rgba(0,0,0,.6) !important;
-
-    text-shadow: 1px 1px 2px #000 !important;
-
-    outline: none !important;
-}
-
-/* Remove old effects */
-#askBtn::before,
-#askBtn::after {
-    display: none !important;
-}
-
-/* Hover */
-#askBtn:hover {
-    background: #900000 !important;
-}
-
-/* Touch */
-#askBtn:active {
-    transform: scale(.97) !important;
-}
-
-/* Focus */
-#askBtn:focus {
-    outline: none !important;
-    box-shadow:
-        inset 0 0 8px rgba(0,0,0,.5),
-        0 2px 5px rgba(0,0,0,.6) !important;
+  from{width:0%}
+  to{width:100%}
 }
