@@ -1,3 +1,4 @@
+
 // ---------------- GAME STATE ----------------
 
 let secretPerson;
@@ -15,6 +16,44 @@ const askBtn = document.getElementById("askBtn");
 const guessBtn = document.getElementById("guessBtn");
 const revealBtn = document.getElementById("revealBtn");
 const newGameBtn = document.getElementById("newGameBtn");
+
+
+// ---------------- CUSTOM POPUP ----------------
+
+function showPopup(message) {
+
+    let popup = document.getElementById("customPopup");
+
+    if (!popup) {
+
+        popup = document.createElement("div");
+        popup.id = "customPopup";
+
+        popup.innerHTML = `
+            <div id="popupBox">
+                <p id="popupMessage"></p>
+                <button id="popupClose">OK</button>
+            </div>
+        `;
+
+        document.body.appendChild(popup);
+
+        document.getElementById("popupClose").onclick = function () {
+            popup.style.display = "none";
+        };
+
+        popup.onclick = function (event) {
+            if (event.target === popup) {
+                popup.style.display = "none";
+            }
+        };
+    }
+
+    document.getElementById("popupMessage").innerText = message;
+
+    popup.style.display = "flex";
+}
+
 
 // ---------------- START GAME ----------------
 
@@ -50,6 +89,10 @@ function startGame(){
 
     }, 1500);
 }
+
+
+// ---------------- GET ANSWER ----------------
+
 function getAnswer(q){
 
     // Alive
@@ -59,12 +102,12 @@ function getAnswer(q){
 
     // Gender
     if (/\bfemale\b|\bwoman\b/.test(q)) {
-    return secretPerson.gender === "female" ? "Yes" : "No";
-}
+        return secretPerson.gender === "female" ? "Yes" : "No";
+    }
 
-if (/\bmale\b|\bman\b/.test(q)) {
-    return secretPerson.gender === "male" ? "Yes" : "No";
-}
+    if (/\bmale\b|\bman\b/.test(q)) {
+        return secretPerson.gender === "male" ? "Yes" : "No";
+    }
 
     // Nationality
     const countries = [
@@ -74,7 +117,7 @@ if (/\bmale\b|\bman\b/.test(q)) {
         "french",
         "portuguese",
         "argentine",
-      "hong kong"
+        "hong kong"
     ];
 
     for(const country of countries){
@@ -84,7 +127,6 @@ if (/\bmale\b|\bman\b/.test(q)) {
                 : "No";
         }
     }
-
 
     // Awards
     for(const award of secretPerson.awards){
@@ -112,6 +154,10 @@ if (/\bmale\b|\bman\b/.test(q)) {
 
     return "Unknown";
 }
+
+
+// ---------------- GEMINI API ----------------
+
 async function askGemini(question){
 
     const prompt = `
@@ -168,6 +214,10 @@ Unknown
     }
 
 }
+
+
+// ---------------- ASK QUESTION ----------------
+
 async function askQuestion(){
 
     if(questionsLeft <= 0){
@@ -182,20 +232,19 @@ async function askQuestion(){
         return;
     }
 
-    
-
     let result = getAnswer(q);
 
-if(result === "Unknown"){
+    if(result === "Unknown"){
 
-    answer.innerText = "Thinking...";
+        answer.innerText = "Thinking...";
 
-    result = await askGemini(q);
+        result = await askGemini(q);
 
-}
+    }
 
-answer.innerText = result;
-  addToHistory(q, result);
+    answer.innerText = result;
+
+    addToHistory(q, result);
 
     questionsLeft--;
 
@@ -204,6 +253,9 @@ answer.innerText = result;
     questionInput.value = "";
 }
 
+
+// ---------------- CHECK GUESS ----------------
+
 function checkGuess(){
 
     const guess = guessInput.value
@@ -211,14 +263,15 @@ function checkGuess(){
         .toLowerCase();
 
     if(guess === ""){
-        alert("Please enter a person's name.");
+        showPopup("Please enter a person's name.");
         return;
     }
 
     if(guess === secretPerson.name.toLowerCase()){
 
         answer.innerText = "You Won !";
-        alert("🎉 Congratulations! You guessed the correct person.");
+
+        showPopup("🎉 Congratulations! You guessed the correct person.");
 
         askBtn.disabled = true;
         guessBtn.disabled = true;
@@ -226,12 +279,17 @@ function checkGuess(){
     }else{
 
         answer.innerText = "❌ Wrong Guess!";
-        alert("Try Again!");
+
+        showPopup("Try Again!");
 
     }
 
     guessInput.value = "";
 }
+
+
+// ---------------- QUESTION HISTORY ----------------
+
 function addToHistory(question, answer) {
 
     const historyList = document.getElementById("historyList");
@@ -259,15 +317,23 @@ function addToHistory(question, answer) {
     `;
 
     historyList.appendChild(item);
-  
-}
-function revealAnswer(){
-    alert(secretPerson.name);
+
 }
 
-function showSummary(){
-    alert(secretPerson.knownFor.join(", "));
+
+// ---------------- REVEAL ANSWER ----------------
+
+function revealAnswer(){
+    showPopup(secretPerson.name);
 }
+
+
+// ---------------- SHOW SUMMARY ----------------
+
+function showSummary(){
+    showPopup(secretPerson.knownFor.join(", "));
+}
+
 
 // ---------------- BUTTON EVENTS ----------------
 
@@ -275,6 +341,7 @@ askBtn.onclick = askQuestion;
 guessBtn.onclick = checkGuess;
 revealBtn.onclick = revealAnswer;
 newGameBtn.onclick = startGame;
+
 
 // ---------------- START ----------------
 
