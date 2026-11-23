@@ -1446,3 +1446,7 @@ img {
     outline: none;
     box-shadow: none;
 }
+#popupClose {
+    font-size: 12px;
+    text-transform: lowercase;
+}
