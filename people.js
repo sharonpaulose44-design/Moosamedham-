@@ -266,7 +266,7 @@ const people = [
     ]
 } ,
 {
-    name: "A. R. Rahman",
+    name: "A R Rahman",
 
     gender: "male",
 
