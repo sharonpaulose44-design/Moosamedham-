@@ -1431,3 +1431,18 @@ img {
     -webkit-user-drag: none;
     user-drag: none;
 }
+#askBtn,
+#guessBtn,
+#revealBtn,
+#newGameBtn {
+    outline: none;
+    box-shadow: none;
+}
+
+#askBtn:focus,
+#guessBtn:focus,
+#revealBtn:focus,
+#newGameBtn:focus {
+    outline: none;
+    box-shadow: none;
+}
