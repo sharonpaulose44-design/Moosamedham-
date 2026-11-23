@@ -1413,3 +1413,21 @@ body {
         transform: scale(1);
     }
 }
+
+/* PREVENT TEXT SELECTION THROUGHOUT THE WEBSITE */
+
+* {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Prevent dragging images */
+
+img {
+    -webkit-user-drag: none;
+    user-drag: none;
+}
