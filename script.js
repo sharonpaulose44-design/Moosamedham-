@@ -32,7 +32,7 @@ function showPopup(message) {
         popup.innerHTML = `
             <div id="popupBox">
                 <p id="popupMessage"></p>
-                <button id="popupClose">Ok</button>
+                <button id="popupClose">Okay</button>
             </div>
         `;
 
