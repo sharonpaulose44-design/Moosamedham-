@@ -1447,5 +1447,6 @@ img {
     box-shadow: none;
 }
 #popupClose {
-    text-transform: lowercase;
+    text-transform: lowercase !important;
+
 }
