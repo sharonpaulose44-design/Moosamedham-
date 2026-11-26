@@ -161,38 +161,24 @@ function getAnswer(q){
 async function askGemini(question){
 
     const prompt = `
-You are the answer engine for Reverse Aswamedham. The player is asking questions to identify a secret person.
+You are playing Reverse Aswamedham.
 
-SOURCE OF FACTS
+The data below describes the person.
 
-- Treat the person data below as the primary source of truth.
-- If the data directly answers the question, follow it.
-- If the data does not answer the question, use reliable, well-known public facts.
-- Do not invent details or make assumptions from stereotypes.
-- If you cannot determine the answer reliably, use Unknown.
+Use it as the primary source.
 
-HOW TO INTERPRET THE QUESTION
+If the answer is not in the data but is a well-known public fact, use your own knowledge.
 
-- Every question is about the secret person, never about you, the AI, or the player.
-- Interpret “you” and “your” as referring to the secret person.
-  Example: “Are you a real person?” means “Is the secret person real?”
-- Evaluate the meaning of the question, not just its exact wording.
-- For questions with multiple parts, answer Unknown unless all parts have the same clear answer.
+If you are genuinely unsure, answer Unknown.
 
-HOW TO CHOOSE THE RESPONSE
-
-- Yes: the answer is supported by the person data or reliable facts.
-- No: the answer is clearly false.
-- Probably: the answer is more likely true than false, but not certain.
-- Unknown: there is not enough reliable information, the question is ambiguous, or its parts have different answers.
-
-Person data:
+Person:
 ${JSON.stringify(secretPerson, null, 2)}
 
-Player's question:
+Question:
 ${question}
 
-Reply with exactly one word from this list:
+Reply with ONLY one word:
+
 Yes
 No
 Probably
