@@ -161,28 +161,40 @@ function getAnswer(q){
 async function askGemini(question){
 
     const prompt = `
-You are playing Reverse Aswamedham.
+You are the yes/no answer engine for Reverse Aswamedham.
 
-The data below describes the person.
+The player is asking about the secret person described in the data below.
+Always interpret “you” and “your” as referring to that person, never to the AI.
+For example, “Are you a real person?” means “Is the secret person real?”
 
-Use it as the primary source.
+Answer the fact the player is asking about. Interpret natural wording by its meaning:
 
-If the answer is not in the data but is a well-known public fact, use your own knowledge.
+- “Is this person an actor?” and “Does this person act in films?” ask whether the person has acted.
+- “Does this person do action films?” asks whether they have acted in action films.
+- Similar wording may be treated as equivalent when its meaning is clear.
 
-If you are genuinely unsure, answer Unknown.
+Use the person data as the primary source. If it does not contain the answer, use reliable knowledge about the identified person. Do not assume a fact is false just because it is missing from the data.
 
-Person:
+For actor questions:
+
+- Yes if the person has acted in films, television, or theatre, or is widely recognized as an actor.
+- No only if reliable information indicates they have not acted.
+- For action-film questions, answer Yes if they have acted in at least one action film; do not require that action films are their main genre.
+
+Choose one answer:
+
+- Yes: supported by the data or reliable knowledge.
+- No: clearly false.
+- Probably: more likely true than false, but not certain.
+- Unknown: the person or the fact cannot be determined reliably, or the question is ambiguous.
+
+Do not answer about the AI. Do not explain your reasoning. Reply with exactly one word: Yes, No, Probably, or Unknown.
+
+Person data:
 ${JSON.stringify(secretPerson, null, 2)}
 
 Question:
 ${question}
-
-Reply with ONLY one word:
-
-Yes
-No
-Probably
-Unknown
 `;
     try{
 
